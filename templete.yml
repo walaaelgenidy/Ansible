@@ -5,10 +5,9 @@ Resources:
       Properties:
           SecurityGroups:
             - !Ref InstanceSecurityGroup
-         
           ImageId: 'ami-05d72852800cbf29e' 
 
-    InstanceSecurityGroup:      
+    InstanceSecurityGroup:       
       Type: 'AWS::EC2::SecurityGroup'
       Properties:
             GroupDescription: Enable SSH access via port 22
