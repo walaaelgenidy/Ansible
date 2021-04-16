@@ -5,9 +5,14 @@ orbs:
   # Declare a dependency on the welcome-orb
   welcome: circleci/welcome-orb@0.4.1
 # Orchestrate or schedule a set of jobs
+jobs:
+  create_infrastructure: 
+    docker:
+      - image: amazon/aws-cli
+    steps:
+      - run: aws cloudformation create-stack --stack-name aws_cloud --template-body templete.yml --region=us-east-2
 workflows:
-  # Name the workflow "welcome"
-  welcome:
+   create_IS:
     # Run the welcome/run job in its own container
     jobs:
-      - welcome/run
+      - create_infrastructure
