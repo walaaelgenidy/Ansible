@@ -1,0 +1,13 @@
+version: 2.1
+jobs:
+  create_infrastructure: 
+    docker:
+      - image: amazon/aws-cli
+    steps:
+      - checkout
+      - run: aws cloudformation create-stack --stack-name awscloud --template-body file://templete.yml --region us-east-2
+workflows:
+   create_IS:
+    # Run the welcome/run job in its own container
+    jobs:
+      - create_infrastructure
