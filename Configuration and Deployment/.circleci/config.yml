@@ -9,9 +9,9 @@ jobs:
        #Ansible will have the creds it needs to access the EC2 instance
           fingerprints:  ["5a:70:c9:12:ae:d8:6e:01:b4:19:66:23:53:06:bf:60"]
        - run:
-         name: Install dependencies
-         command: |
-           apk add --update ansible   
+          name: Install dependencies
+          command: |
+            apk add --update ansible   
        - run:
           name: Configure server
           command: |
